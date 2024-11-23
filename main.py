@@ -2,12 +2,16 @@ import pygame
 
 pygame.init()
 
-screen_h = 400
-screen_w = 500
-screen = pygame.display.set_mode((screen_w, screen_h))
-pygame.display.set_caption("Calculator")
+display_w = 300
+display_h = 400
+icon = pygame.image.load("icon.png")
+display = pygame.display.set_mode((display_w, display_h))
 
-def display():
+pygame.display.set_caption("Calculator")
+pygame.display.set_icon(icon)
+
+
+def menu():
     start = True
     
     while start:
@@ -15,7 +19,11 @@ def display():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-                
-    pygame.display.update()
+                        
+        display.fill("white")
+        pygame.draw.line(display, "#00000000", (0, 150), (300, 150), 3)
     
-display()
+        pygame.display.update()
+
+    
+menu()
